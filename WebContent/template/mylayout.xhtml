@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title><ui:insert name="title">My application</ui:insert></title>
+	<h:outputStylesheet library="webjars"
+		name="bootstrap/3.3.7/css/bootstrap.min-jsf.css" />
+	<h:outputScript library="webjars" name="jquery/1.11.1/jquery.js" />
+	<h:outputScript library="webjars"
+		name="bootstrap/3.3.7/js/bootstrap.js" />
+</h:head>
+<h:body>
+
+	<div class="container">
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+						aria-expanded="false"></button>
+					<a class="navbar-brand" href="personnes.xhtml"> <ui:insert
+							name="header">
+							<span>Liste des personnes</span>
+						</ui:insert>
+					</a>
+				</div>
+				<div class="navbar-header" style="float:right">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+						aria-expanded="false"></button>
+					<a class="navbar-brand" href="login.xhtml"> <ui:insert
+							name="header">
+							<span>Log in/Log out</span>
+						</ui:insert>
+					</a>
+				</div>
+			</div>
+		</nav>
+
+		<ui:debug />
+		<div>
+			<ui:insert name="content">
+				<p>CONTENT</p>
+			</ui:insert>
+			<h:messages />
+		</div>
+
+		<footer class="page-footer">
+			<div class="footer-copyright text-center py-3">
+				<ui:insert name="footer">
+					<span>(Projet AA) ZAID + NGUYEN</span>
+				</ui:insert>
+			</div>
+		</footer>
+	</div>
+</h:body>
+</html>

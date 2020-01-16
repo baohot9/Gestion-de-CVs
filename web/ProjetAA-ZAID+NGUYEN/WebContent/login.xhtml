@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template/mylayout.xhtml">
+	<ui:define name="content">
+		<f:view>
+
+			<div style="width: 300px; margin: auto">
+				<p>
+				<h1 style="text-align: center;">#{login.label} page</h1>
+				</p>
+				<h:form>
+					<div class="form-group">
+						<label for="email">Email:</label>
+						<h:inputText id="email" value="#{login.email}"
+							styleClass="form-control" required="true"
+							requiredMessage="L'email est obligatoire"
+							disabled="#{login.token}">
+							<f:validateLength minimum="3" maximum="50" />
+						</h:inputText>
+					</div>
+
+					<div class="form-group">
+						<label for="pw">Mot de passe :</label>
+						<h:inputSecret id="pw" value="#{login.pw}"
+							styleClass="form-control" required="true"
+							requiredMessage="Mot de passe est obligatoire"
+							disabled="#{login.token}">
+							<f:validateLength minimum="3" maximum="50" />
+						</h:inputSecret>
+					</div>
+					<div style="text-align: center">
+						<h:commandButton value="Log in" styleClass="btn btn-primary"
+							action="#{login.findLogin()}" rendered="#{not login.token}" />
+						<h:commandButton value="Log out" styleClass="btn btn-primary" 
+						    action="#{login.logout()}" rendered="#{login.token}"/>						    
+
+					</div>
+					<p></p>
+				</h:form>
+			</div>
+		</f:view>
+	</ui:define>
+</ui:composition>
+
+</html>

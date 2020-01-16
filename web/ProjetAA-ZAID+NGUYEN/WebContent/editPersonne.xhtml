@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/mylayout.xhtml">
+	<ui:define name="content">
+		<f:view>
+
+			<h1>Personne form</h1>
+			<h:form id="test">
+				<c:set var="c" value="#{personne.thePersonne}" />
+
+				<div class="form-group">
+					<label for="nom">Nom:</label>
+					<h:inputText id="nom" value="#{c.nom}" styleClass="form-control"
+						required="true" requiredMessage="Le nom est obligatoire">
+						<f:validateLength minimum="3" maximum="200" />
+						<h:message for="nom" style="color:red" />
+					</h:inputText>
+				</div>
+
+				<div class="form-group">
+					<label for="prenom">Prenom:</label>
+					<h:inputText id="prenom" value="#{c.prenom}"
+						styleClass="form-control" required="true"
+						requiredMessage="Le prenom est obligatoire">
+						<f:validateLength minimum="3" maximum="200" />
+						<h:message for="prenom" style="color:red" />
+					</h:inputText>
+				</div>
+
+				<div class="form-group">
+					<label for="email">email:</label>
+					<h:inputText id="email" value="#{c.email}"
+						styleClass="form-control" required="true"
+						requiredMessage="L email est obligatoire">
+						<f:validateLength minimum="3" maximum="200" />
+						<h:message for="email" style="color:red" />
+					</h:inputText>
+				</div>
+
+				<div class="form-group">
+					<label for="web">Site Web:</label>
+					<h:inputText id="web" value="#{c.web}" styleClass="form-control"
+						required="true" requiredMessage="Le web est obligatoire">
+						<f:validateLength minimum="3" maximum="200" />
+						<h:message for="web" style="color:red" />
+					</h:inputText>
+				</div>
+
+				<div class="form-group">
+					<label for="dateN">Date de naissance:</label>
+					<h:inputText id="dateN" value="#{c.dateN}"
+						styleClass="form-control" required="true"
+						requiredMessage="La date de naissance est obligatoire">
+						<f:validateLength minimum="3" maximum="200" />
+						<h:message for="dateN" style="color:red" />
+					</h:inputText>
+				</div>
+
+
+				<div class="form-group">
+					<label for="password">Password:</label>
+					<h:inputText id="password" value="#{c.password}"
+						styleClass="form-control" required="true"
+						requiredMessage="Le password est obligatoire">
+						<f:validateLength minimum="3" maximum="200" />
+						<h:message for="password" style="color:red" />
+					</h:inputText>
+				</div>
+				
+				<div class="form-group">
+					<h:commandButton action="#{personne.save()}"
+						styleClass="btn btn-primary" value="Save" />
+					<span> </span>
+					<h:link styleClass="btn btn-info" outcome="personnes" value="Quit" />
+				</div>
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>
+
+</html>
